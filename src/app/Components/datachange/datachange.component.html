@@ -1,0 +1,6 @@
+<button class="btn btn-primary" (click)="toggleText()">Click me</button>
+<p>{{ buttonText }}</p>
+<div *ngFor="let item of contacts">
+  <div>{{ item.name }}</div>
+  <div>{{ item.mobileNumber }}</div>
+</div>

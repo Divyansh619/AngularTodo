@@ -1,0 +1,38 @@
+<form (ngSubmit)="SubmitForm()">
+    <input type="text" (input)="loginField($event)" placeholder="email" />
+    <input type="password" (input)="passField($event)" placeholder="password" />
+    <input type="file" (change)="uploadImage($event)" accept="image/*" />
+    <input type="file" (change)="uploadMusic($event)" accept="audio/*" />
+    <button class="btn btn-primary" type="submit">Login</button>
+  </form>
+  
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login Info</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Email: {{ login }}</p>
+          <p>Password: {{ password }}</p>
+          <div *ngIf="image">
+            <p>Uploaded Image:</p>
+            <img [src]="image" alt="Uploaded Image" style="max-width: 100%;" />
+          </div>
+          <div *ngIf="music">
+            <p>Uploaded Music:</p>
+            <audio #audioControl controls [src]="music"></audio>
+          </div>
+          <div>
+            <label class="switch">
+              <input type="checkbox" (change)="toggleMusic($event)" [checked]="isMusicPlaying">
+              <span class="slider round"></span>
+            </label>
+            <span>{{ isMusicPlaying ? 'Music On' : 'Music Off' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,18 @@
+<p>calculate percentage</p>
+<form>
+    <input
+    type="number"
+    class="form-control"
+    placeholder=""
+    aria-label="Example text with button addon"
+    aria-describedby="button-addon1"
+    (input)="onInputChange($event)"
+  />
+  
+  <button class="btn btn-primary m-2" type="button" (click)="calculatePercentage(10)">calculate 10%</button>
+  <button class="btn btn-primary m-2" type="button" (click)="calculatePercentage(15)">calculate 15%</button>
+  <button class="btn btn-primary m-2" type="button" (click)="calculatePercentage(20)">calculate 20%</button>
+</form>
+
+<!-- Display the calculated percentage -->
+<p>Calculated Percentage: {{ percentage }}</p>

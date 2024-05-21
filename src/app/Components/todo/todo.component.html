@@ -1,0 +1,40 @@
+<h3>Add Your Todo's</h3>
+<form (ngSubmit)="OnSubmit()" class="mb-4">
+  <div class="mb-3">
+    <label for="title" class="form-label">Todo</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      aria-describedby="title"
+      [(ngModel)]="title"
+      name="title"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="desc" class="form-label">Description</label>
+    <input type="text" [(ngModel)]="desc" class="form-control" id="desc" name="desc" />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add Todo</button>
+</form>
+
+<h3>Your Todo List is here ==></h3>
+
+<div class="my-3" *ngFor="let todoItem of todo">
+  <div class="d-flex flex-row">
+    <span class="">{{ todoItem.id }}</span>
+    <h3>{{ todoItem.title }}</h3>
+  </div>
+
+  <h6>{{ todoItem.desc }}</h6>
+  <button class="btn btn-danger" (click)="onClick(todoItem)">delete</button>
+</div>
+
+
+<!-- -------------- -->
+<Button class="btn btn-primary" (click)="btnClick()">Click Me</Button>
+<div *ngFor="let item of items" [id]="item.id">
+    <h6 *ngIf="!item.active">I am not clicked</h6>
+    <h6 *ngIf="item.active">I am Clicked</h6>
+</div>
